@@ -1,9 +1,16 @@
 import pyaudio, threading, queue, requests
 
 # Configuration
+global chunk
+global sample_format
+global channelcount
+global fs
+global seconds
+global device_id
+global server_url
 chunk = 1024
 sample_format = pyaudio.paInt16
-channels = 2
+channelcount = 2
 fs = 48000
 seconds = 20
 device_id = 4 #? find the one you want with ./get_device_id.py
@@ -18,17 +25,17 @@ def record_audio():
 	device_info = p.get_device_info_by_index(device_id)
 	
 	try:
-		channels = device_info["maxInputChannels"] if device_info["maxInputChannels"] > 0 else channels
-	except Exception: pass
+		channelcount = int(device_info["maxInputChannels"]) if int(device_info["maxInputChannels"]) > 0 else int(channelcount)
+	except UnboundLocalError|Exception: channelcount = int(2)
 	rate = int(device_info["defaultSampleRate"])
-
 	stream = p.open(format=sample_format,
-					channels=channels,
+					channels=channelcount,
 					rate=rate,
 					input=True,
 					frames_per_buffer=chunk,
 					input_device_index=device_info["index"],
-					as_loopback=True)
+					# as_loopback=True
+					)
 
 	print("Recording started...")
 
