@@ -10,7 +10,7 @@ SAMPLE_WIDTH = 2  # 16-bit = 2 bytes
 CHUNK_SIZE = 4096  # Should match recv buffer size
 
 # Server config
-HOST = search(r'(?<!\d)((\d+\.){3}\d+)', check_output('ipconfig', shell=True).decode('utf-8')).group(1).strip() or '127.0.0.1'
+HOST = '127.0.0.1' #search(r'(?<!\d)((\d+\.){3}\d+)', check_output('ipconfig', shell=True).decode('utf-8')).group(1).strip() or '127.0.0.1'
 PORT = 5001
 OUTPUT_FILE = f"recording_{int(time.time())}.wav"
 
