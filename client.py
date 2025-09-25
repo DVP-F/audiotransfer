@@ -6,7 +6,7 @@ sample_format = pyaudio.paInt16
 channels = 2
 fs = 48000
 seconds = 20
-device_id = 4
+device_id = 4 #? find the one you want with ./get_device_id.py
 server_url = "http://127.0.0.1:5001"
 
 # Thread-safe queue for audio chunks
