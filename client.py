@@ -5,9 +5,9 @@ chunk = 1024
 sample_format = pyaudio.paInt16
 channels = 2
 fs = 48000
-seconds = 3
-device_id = 7
-server_url = "http://your-server/handle-audio-chunk"
+seconds = 20
+device_id = 4
+server_url = "http://10.55.30.77"
 
 # Thread-safe queue for audio chunks
 audio_queue = queue.Queue()
