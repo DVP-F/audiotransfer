@@ -17,7 +17,9 @@ def record_audio():
 	p = pyaudio.PyAudio()
 	device_info = p.get_device_info_by_index(device_id)
 	
-	channels = device_info["maxInputChannels"] if device_info["maxInputChannels"] > 0 else channels
+	try:
+		channels = device_info["maxInputChannels"] if device_info["maxInputChannels"] > 0 else channels
+	except Exception: pass
 	rate = int(device_info["defaultSampleRate"])
 
 	stream = p.open(format=sample_format,
