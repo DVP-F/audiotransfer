@@ -7,7 +7,7 @@ channels = 2
 fs = 48000
 seconds = 20
 device_id = 4
-server_url = "http://127.0.0.1"
+server_url = "http://127.0.0.1:5001"
 
 # Thread-safe queue for audio chunks
 audio_queue = queue.Queue()
